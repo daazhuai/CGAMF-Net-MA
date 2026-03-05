@@ -226,12 +226,12 @@ python Train_External_Model.py
 **Output Structure:**
 
 - `saved_models_clin/` - Clinical-only model
-- `saved_models_clin_cnv/` - Clinical + CNV ensemble
+- `saved_models_clin_/` - Clinical + CNA ensemble
 - `saved_models_clin_snv/` - Clinical + SNV ensemble
-- `saved_models_clin_mrna/` - Clinical + mRNA ensemble
-- `saved_models_clin_cnv_snv/` - Clinical + CNV + SNV ensemble
-- `saved_models_clin_cnv_mrna/` - Clinical + CNV + mRNA ensemble
-- `saved_models_clin_snv_mrna/` - Clinical + SNV + mRNA ensemble
+- `saved_models_clin_mrna/` - Clinical + RNA ensemble
+- `saved_models_clin_cnv_snv/` - Clinical + CNA + SNV ensemble
+- `saved_models_clin_cnv_mrna/` - Clinical + CNA + RNA ensemble
+- `saved_models_clin_snv_mrna/` - Clinical + SNV + RNA ensemble
 - `saved_models_clin_cnv_snv_mrna/` - Full four-modality ensemble
 
 ---
@@ -253,7 +253,7 @@ This script evaluates all 8 trained modality combinations on the external TCGA d
 ```python
 ensemble_dirs = [      # Directories for all 8 modality combinations
     "saved_models_clin",
-    "saved_models_clin_cnv",
+    "saved_models_clin_",
     ...
 ]
 external_data_dir = "/root/METAtrain/data/external_validation/"  # TCGA data directory
@@ -300,18 +300,18 @@ pip install -r requirements.txt
 Place the following files in `./dataset/METABRIC/`:
 
 - `METABRIC_Clinical.csv`
+- `METABRIC_CNA.csv`
 - `METABRIC_SNV.csv`
-- `METABRIC_CNV.csv`
 - `METABRIC_RNA.csv`
 
 ### TCGA (External Validation)
 
-Place the following files in your external validation directory (e.g., `/root/METAtrain/data/external_validation/`):
+Place the following files in your external validation directory (e.g., `./dataset/TCGA/`):
 
-- `clinical_filtered.csv`
-- `SNV_filtered.csv`
-- `CNV_filtered.csv`
-- `mRNA_filtered.csv`
+- `TCGA_Clinical.csv`
+- `TCGA_CNA.csv`
+- `TCGA_SNV.csv`
+- `TCGA_RNA.csv`
 
 ---
 
